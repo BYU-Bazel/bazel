@@ -2,7 +2,7 @@
 
 licenses(["notice"])
 
-load("@rules_java//java:defs.bzl", "java_library")
+load("@rules_java//java:defs.bzl", "java_binary", "java_library")
 
 filegroup(
     name = "srcs",
@@ -11,11 +11,18 @@ filegroup(
 )
 
 # FIX: Publically visible starlark java parser.
-java_library(
+java_binary(
     name = "starlark_api",
-    srcs = glob([
-        "//src/main/java/net/starlark/java/...",
-    ]),
+    srcs = [
+        "Empty.java",
+    ],
+    deps = [
+        "//src/main/java/net/starlark/java/lib/json:json",
+        "//src/main/java/net/starlark/java/eval:eval",
+        "//src/main/java/net/starlark/java/syntax:syntax",
+        "//src/main/java/net/starlark/java/spelling:spelling",
+        "//src/main/java/net/starlark/java/annot:annot",
+    ],
     visibility = ["//visibility:public"],
 )
 
