@@ -24,3 +24,5 @@
 # User-specific .bazelrc
 user.bazelrc
 
+# Ignore patch starlark jar utility output
+/patch_output
