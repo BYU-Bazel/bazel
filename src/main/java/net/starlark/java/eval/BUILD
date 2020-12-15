@@ -49,7 +49,7 @@ java_library(
         "StringModule.java",
         "Tuple.java",
     ],
-    visibility = ["//src/main/java/net/starlark/java:clients"],
+    visibility = ["//visibility:public"],
     deps = [
         # Do not add Bazel or Google dependencies here!
         "//src/main/java/net/starlark/java/annot",

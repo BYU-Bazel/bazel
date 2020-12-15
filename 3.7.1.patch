@@ -1,0 +1,52 @@
+diff --git a/src/main/java/net/starlark/java/annot/BUILD b/src/main/java/net/starlark/java/annot/BUILD
+index 120d0266ee..aabe03b3d2 100644
+--- a/src/main/java/net/starlark/java/annot/BUILD
++++ b/src/main/java/net/starlark/java/annot/BUILD
+@@ -3,7 +3,7 @@ load("@rules_java//java:defs.bzl", "java_library")
+ filegroup(
+     name = "srcs",
+     srcs = glob(["**"]),
+-    visibility = ["//src:__subpackages__"],
++    visibility = ["//visibility:public"],
+ )
+ 
+ # Annotations to make Java classes and methods accessible from Starlark.
+diff --git a/src/main/java/net/starlark/java/eval/BUILD b/src/main/java/net/starlark/java/eval/BUILD
+index f5b198e179..79b68ad0b4 100644
+--- a/src/main/java/net/starlark/java/eval/BUILD
++++ b/src/main/java/net/starlark/java/eval/BUILD
+@@ -7,7 +7,7 @@ licenses(["notice"])  # Apache 2.0
+ filegroup(
+     name = "srcs",
+     srcs = glob(["**"]),
+-    visibility = ["//src/main/java/net/starlark/java:bazel"],
++    visibility = ["//visibility:public"],
+ )
+ 
+ # The Starlark evaluator
+diff --git a/src/main/java/net/starlark/java/spelling/BUILD b/src/main/java/net/starlark/java/spelling/BUILD
+index eb8759047f..95587aa816 100644
+--- a/src/main/java/net/starlark/java/spelling/BUILD
++++ b/src/main/java/net/starlark/java/spelling/BUILD
+@@ -3,7 +3,7 @@
+ filegroup(
+     name = "srcs",
+     srcs = glob(["**"]),
+-    visibility = ["//src:__subpackages__"],
++    visibility = ["//visibility:public"],
+ )
+ 
+ java_library(
+diff --git a/src/main/java/net/starlark/java/syntax/BUILD b/src/main/java/net/starlark/java/syntax/BUILD
+index 8535a6366c..9279ba04fc 100644
+--- a/src/main/java/net/starlark/java/syntax/BUILD
++++ b/src/main/java/net/starlark/java/syntax/BUILD
+@@ -7,7 +7,7 @@ licenses(["notice"])
+ filegroup(
+     name = "srcs",
+     srcs = glob(["**"]),
+-    visibility = ["//src:__subpackages__"],
++    visibility = ["//visibility:public"],
+ )
+ 
+ # The Starlark frontend (syntax, scanner, parser, resolver)

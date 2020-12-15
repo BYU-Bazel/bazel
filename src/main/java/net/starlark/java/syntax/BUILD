@@ -7,7 +7,7 @@ licenses(["notice"])
 filegroup(
     name = "srcs",
     srcs = glob(["**"]),
-    visibility = ["//visibility:public"],
+    visibility = ["//src:__subpackages__"],
 )
 
 # The Starlark frontend (syntax, scanner, parser, resolver)
@@ -55,7 +55,7 @@ java_library(
         "TokenKind.java",
         "UnaryOperatorExpression.java",
     ],
-    visibility = ["//src/main/java/net/starlark/java:clients"],
+    visibility = ["//visibility:public"],
     # Do not add Bazel or Google dependencies here!
     deps = [
         "//src/main/java/net/starlark/java/spelling",
