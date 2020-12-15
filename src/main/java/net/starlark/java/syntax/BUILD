@@ -7,7 +7,7 @@ licenses(["notice"])
 filegroup(
     name = "srcs",
     srcs = glob(["**"]),
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 # The Starlark frontend (syntax, scanner, parser, resolver)
