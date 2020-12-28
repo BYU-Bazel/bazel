@@ -13,7 +13,6 @@ md5_cmd = "set -e -o pipefail && %s $(SRCS) | %s | %s > $@"
     name = "install_base_key-file" + suffix,
     srcs = [
         "//src/main/java/com/google/devtools/build/lib/bazel:BazelServer_deploy.jar",
-        "//src/main/starlark/builtins_bzl:builtins_bzl.zip",
         "//src/main/java/net/starlark/java/eval:cpu_profiler",
         # TODO(brandjon): ensure we haven't forgotten any package-zip items,
         # otherwise bazel won't correctly reextract modified files.
@@ -175,8 +174,8 @@ rule_size_test(
 filegroup(
     name = "embedded_jdk_allmodules_cached",
     srcs = select({
-        "//src/conditions:darwin": [
-            "@openjdk_macos//file",
+        "//src/conditions:darwin_x86_64": [
+            "@openjdk_macos_x86_64//file",
         ],
         "//src/conditions:windows": [
             "@openjdk_win//file",
@@ -194,8 +193,8 @@ filegroup(
 filegroup(
     name = "embedded_jdk_minimal_cached",
     srcs = select({
-        "//src/conditions:darwin": [
-            "@openjdk_macos_minimal//file",
+        "//src/conditions:darwin_x86_64": [
+            "@openjdk_macos_x86_64_minimal//file",
         ],
         "//src/conditions:windows": [
             "@openjdk_win_minimal//file",
@@ -213,8 +212,8 @@ filegroup(
 filegroup(
     name = "embedded_jdk_vanilla",
     srcs = select({
-        "//src/conditions:darwin": [
-            "@openjdk_macos_vanilla//file",
+        "//src/conditions:darwin_x86_64": [
+            "@openjdk_macos_x86_64_vanilla//file",
         ],
         "//src/conditions:windows": [
             "@openjdk_win_vanilla//file",
@@ -324,13 +323,15 @@ filegroup(
 
 [genrule(
     name = "package-zip" + suffix,
-    # This script assumes the following arg order: 1) embedded tools zip (if it
-    # exists), 2) the deploy jar, 3) the install base key, 4) the builtins bzl
-    # zip, 5) the platforms archive, 6) everything else to be bundled.
+    # This script assumes the following arg order:
+    #   1) embedded tools zip (if it exists)
+    #   2) the deploy jar
+    #   3) the install base key
+    #   4) the platforms archive
+    #   5) everything else to be bundled
     srcs = ([":embedded_tools" + suffix + ".zip"] if embed else []) + [
         "//src/main/java/com/google/devtools/build/lib/bazel:BazelServer_deploy.jar",
         "install_base_key" + suffix,
-        "//src/main/starlark/builtins_bzl:builtins_bzl.zip",
         ":platforms_archive",
         # Non-ordered items follow:
         "//src/main/java/net/starlark/java/eval:cpu_profiler",
@@ -709,7 +710,7 @@ filegroup(
         "@openjdk15_windows_archive//:WORKSPACE",
         "@openjdk_linux_aarch64_minimal//file",
         "@openjdk_linux_minimal//file",
-        "@openjdk_macos_minimal//file",
+        "@openjdk_macos_x86_64_minimal//file",
         "@openjdk_win_minimal//file",
         "@remote_coverage_tools_for_testing//:WORKSPACE",
         "@remote_java_tools_darwin_for_testing//:WORKSPACE",

@@ -272,6 +272,8 @@ build --sandbox_tmpfs_path=/tmp
 
 build --incompatible_skip_genfiles_symlink=false
 
+build --incompatible_use_toolchain_resolution_for_java_rules
+
 ${EXTRA_BAZELRC:-}
 EOF
 
@@ -294,7 +296,7 @@ EOF
         "openjdk15_windows_archive"
         "openjdk_linux_aarch64_minimal"
         "openjdk_linux_minimal"
-        "openjdk_macos_minimal"
+        "openjdk_macos_x86_64_minimal"
         "openjdk_win_minimal"
         "remote_coverage_tools_for_testing"
         "remote_java_tools_for_testing"
