@@ -3,4 +3,10 @@
 cd "$(dirname "$0")"
 cd ../
 
-grep -r -l -i "visibility\s*=\s*\[[^\]]*\]" src/main/java/net 
+make_public() {
+    SEARCH='visibility[[:space:]]*=[[:space:]]*\[[^\]*\]'
+    REPLACE='visibility = ["\/\/visibility:public"]'
+    find $1 -type f -exec sed -i "" "s/$SEARCH/$REPLACE/gi" {} \;
+}
+
+make_public ./src/main/java/net/starlark
