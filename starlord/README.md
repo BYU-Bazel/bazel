@@ -1,6 +1,6 @@
 # STARLORD
 
-This is a package uses sheer willpower to mold the Bazel source code to suit our needs.
+This is a package uses sheer willpower to mold the Bazel source code to suit our needs. Copybara might be able to automate this, might be worth looking into.
 
 ## How to use
 
