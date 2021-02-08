@@ -10,4 +10,5 @@ then
     exit $EXIT_CODE
 fi
 
-mv bazel-bin/starlord/bazel_deploy.jar starlord/bazel_deploy.jar
+rm "starlord/bazel_deploy.jar" 2> /dev/null
+cp bazel-bin/starlord/bazel_deploy.jar "starlord/bazel_deploy.jar"
