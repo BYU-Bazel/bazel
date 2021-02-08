@@ -7,7 +7,7 @@ licenses(["notice"])  # Apache 2.0
 filegroup(
     name = "srcs",
     srcs = glob(["**"]),
-    visibility = ["//src/main/java/net/starlark/java:bazel"],
+    visibility = ["//visibility:public"],
 )
 
 # The Starlark evaluator
@@ -50,7 +50,7 @@ java_library(
         "Structure.java",
         "Tuple.java",
     ],
-    visibility = ["//src/main/java/net/starlark/java:clients"],
+    visibility = ["//visibility:public"],
     deps = [
         # Do not add Bazel or Google dependencies here!
         "//src/main/java/net/starlark/java/annot",
@@ -73,7 +73,7 @@ filegroup(
         "//src/conditions:windows": [":cpu_profiler.dll"],
         "//conditions:default": [":libcpu_profiler.so"],  # POSIX
     }),
-    visibility = ["//src/main/java/net/starlark/java:clients"],
+    visibility = ["//visibility:public"],
 )
 
 genrule(

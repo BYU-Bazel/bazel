@@ -2,7 +2,7 @@ load("//tools/build_rules:utilities.bzl", "java_library_srcs")
 load("@rules_java//java:defs.bzl", "java_proto_library")
 load("@rules_proto//proto:defs.bzl", "proto_library")
 
-package(default_visibility = ["//src:__pkg__"])
+package(default_visibility = ["//visibility:public"])
 
 proto_library(
     name = "action_rewind_event",
@@ -11,7 +11,7 @@ proto_library(
 
 java_proto_library(
     name = "action_rewind_event_java_proto",
-    visibility = ["//src/main/java/com/google/devtools/build/lib:__subpackages__"],
+    visibility = ["//visibility:public"],
     deps = [":action_rewind_event"],
 )
 
@@ -23,5 +23,5 @@ java_library_srcs(
 filegroup(
     name = "srcs",
     srcs = glob(["**"]),
-    visibility = ["//src/main/java/com/google/devtools/build/lib:__subpackages__"],
+    visibility = ["//visibility:public"],
 )

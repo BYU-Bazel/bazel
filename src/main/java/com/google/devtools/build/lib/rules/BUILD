@@ -1,6 +1,6 @@
 load("@rules_java//java:defs.bzl", "java_library")
 
-package(default_visibility = ["//src:__subpackages__"])
+package(default_visibility = ["//visibility:public"])
 
 filegroup(
     name = "srcs",
@@ -17,7 +17,7 @@ filegroup(
         "//src/main/java/com/google/devtools/build/lib/rules/proto:srcs",
         "//src/main/java/com/google/devtools/build/lib/rules/python:srcs",
     ],
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 java_library(

@@ -29,6 +29,6 @@ java_proto_library(
 
 java_library_srcs(
     name = "dist_jars",
-    visibility = ["//src:__pkg__"],
+    visibility = ["//visibility:public"],
     deps = [":stardoc_output_java_proto"],
 )

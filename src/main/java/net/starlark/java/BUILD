@@ -5,7 +5,7 @@ licenses(["notice"])
 filegroup(
     name = "srcs",
     srcs = ["BUILD"],
-    visibility = [":bazel"],
+    visibility = ["//visibility:public"],
 )
 
 # The java.starlark.net project, including its tests.

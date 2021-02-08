@@ -2,7 +2,7 @@ load("//:distdir_deps.bzl", "gen_workspace_stanza")
 load("@rules_java//java:defs.bzl", "java_library")
 
 package(
-    default_visibility = ["//src:__subpackages__"],
+    default_visibility = ["//visibility:public"],
 )
 
 filegroup(
@@ -17,7 +17,7 @@ filegroup(
         "//src/main/java/com/google/devtools/build/lib/bazel/rules/python:srcs",
         "//src/main/java/com/google/devtools/build/lib/bazel/rules/sh:srcs",
     ],
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 java_library(
@@ -113,7 +113,7 @@ genrule(
     srcs = ["//src/main/starlark/builtins_bzl:builtins_bzl.zip"],
     outs = ["builtins_bzl.zip"],
     cmd = "cp $(SRCS) $@",
-    visibility = ["//:__pkg__"],
+    visibility = ["//visibility:public"],
 )
 
 # To generate an updated version of CoverageOutputGenerator:
@@ -128,5 +128,5 @@ gen_workspace_stanza(
         load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
     """,
     repos = ["remote_coverage_tools"],
-    visibility = ["//:__pkg__"],
+    visibility = ["//visibility:public"],
 )

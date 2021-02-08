@@ -8,7 +8,7 @@ licenses(["notice"])
 filegroup(
     name = "srcs",
     srcs = glob(["**"]),
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 java_binary(
@@ -24,7 +24,7 @@ java_binary(
         "-XX:+IgnoreUnrecognizedVMOptions",
     ],
     main_class = "net.starlark.java.cmd.Main",
-    visibility = ["//src/main/java/net/starlark/java:clients"],
+    visibility = ["//visibility:public"],
     deps = [
         "//src/main/java/net/starlark/java/eval",
         "//src/main/java/net/starlark/java/syntax",

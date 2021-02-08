@@ -2,12 +2,12 @@ load("@rules_java//java:defs.bzl", "java_proto_library")
 load("//tools/build_rules:utilities.bzl", "java_library_srcs")
 load("@rules_proto//proto:defs.bzl", "proto_library")
 
-package(default_visibility = ["//src:__subpackages__"])
+package(default_visibility = ["//visibility:public"])
 
 filegroup(
     name = "srcs",
     srcs = glob(["**"]),
-    visibility = ["//src/main/java/com/google/devtools/build/lib:__pkg__"],
+    visibility = ["//visibility:public"],
 )
 
 java_library_srcs(

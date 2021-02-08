@@ -106,7 +106,7 @@ group <code>//foo:target</code>. Individual visibility declarations
 on a rule, if present, override this specification.
 
 <pre class="code">
-package(default_visibility = ["//foo:target"])
+package(default_visibility = ["//visibility:public"])
 </pre>
 
 <!-- =================================================================

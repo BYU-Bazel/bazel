@@ -13,7 +13,7 @@ package(
 filegroup(
     name = "srcs",
     srcs = glob(["**"]),
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 proto_library(

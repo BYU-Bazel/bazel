@@ -56,7 +56,7 @@ java_library(
         "TokenKind.java",
         "UnaryOperatorExpression.java",
     ],
-    visibility = ["//src/main/java/net/starlark/java:clients"],
+    visibility = ["//visibility:public"],
     # Do not add Bazel or Google dependencies here!
     deps = [
         "//src/main/java/net/starlark/java/spelling",

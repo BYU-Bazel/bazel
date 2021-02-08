@@ -2,7 +2,7 @@ load("@rules_java//java:defs.bzl", "java_library")
 load("//:distdir_deps.bzl", "gen_workspace_stanza")
 
 package(
-    default_visibility = ["//src:__subpackages__"],
+    default_visibility = ["//visibility:public"],
 )
 
 filegroup(
@@ -10,7 +10,7 @@ filegroup(
     srcs = glob(["*"]) + [
         "//src/main/java/com/google/devtools/build/lib/bazel/rules/java/proto:srcs",
     ],
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 java_library(
@@ -88,5 +88,5 @@ gen_workspace_stanza(
     ],
     template = "jdk.WORKSPACE.tmpl",
     use_maybe = True,
-    visibility = ["//:__pkg__"],
+    visibility = ["//visibility:public"],
 )

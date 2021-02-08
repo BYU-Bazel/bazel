@@ -24,7 +24,7 @@ load("@rules_java//java:defs.bzl", "java_library")
 # avoid many common traps and pitfalls when (e.g.)  computing
 # dependencies.
 package(
-    default_visibility = ["//src:__subpackages__"],
+    default_visibility = ["//visibility:public"],
 )
 
 # Generate list of all srcs via:
@@ -462,7 +462,7 @@ filegroup(
         "//src/main/java/com/google/devtools/build/lib:gen_command-line-reference",
         "//src/main/java/com/google/devtools/build/lib:gen_skylarklibrary",
     ],
-    visibility = ["//src/test/shell/bazel:__pkg__"],
+    visibility = ["//visibility:public"],
 )
 
 filegroup(
@@ -493,7 +493,7 @@ genrule(
         "//src/main/java/com/google/devtools/build/docgen:docgen_bin",
         "//src/main/java/com/google/devtools/build/docgen:docgen_javalib",
     ],
-    visibility = ["//site:__pkg__"],
+    visibility = ["//visibility:public"],
 )
 
 genrule(
@@ -519,7 +519,7 @@ genrule(
     tools = [
         "//src/main/java/com/google/devtools/build/lib/bazel:BazelServer",
     ],
-    visibility = ["//site:__pkg__"],
+    visibility = ["//visibility:public"],
 )
 
 genrule(
@@ -529,5 +529,5 @@ genrule(
           "$(location //src/main/java/com/google/devtools/build/docgen:skydoc_bin) $(@D)/skylark-lib" +
           " && zip -qj $@ $(@D)/skylark-lib/*",
     tools = ["//src/main/java/com/google/devtools/build/docgen:skydoc_bin"],
-    visibility = ["//site:__pkg__"],
+    visibility = ["//visibility:public"],
 )

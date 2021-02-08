@@ -3,13 +3,13 @@ load("//tools/build_rules:utilities.bzl", "java_library_srcs")
 load("@rules_java//java:defs.bzl", "java_proto_library")
 
 package(
-    default_visibility = ["//src:__subpackages__"],
+    default_visibility = ["//visibility:public"],
 )
 
 filegroup(
     name = "srcs",
     srcs = glob(["*"]),
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 java_library(

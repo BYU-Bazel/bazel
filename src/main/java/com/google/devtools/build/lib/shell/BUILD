@@ -1,12 +1,12 @@
 load("//tools/build_rules:java_rules_skylark.bzl", "bootstrap_java_library")
 load("@rules_java//java:defs.bzl", "java_library")
 
-package(default_visibility = ["//src:__subpackages__"])
+package(default_visibility = ["//visibility:public"])
 
 filegroup(
     name = "srcs",
     srcs = glob(["**"]),
-    visibility = ["//src/main/java/com/google/devtools/build/lib:__pkg__"],
+    visibility = ["//visibility:public"],
 )
 
 # Library for dealing with executable commands, including their arguments and runtime environment

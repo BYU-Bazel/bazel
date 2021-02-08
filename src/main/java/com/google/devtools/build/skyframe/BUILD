@@ -5,7 +5,7 @@ load("//tools/build_rules:utilities.bzl", "java_library_srcs")
 # Description:
 #   Skyframe Java code
 package(
-    default_visibility = ["//src:__subpackages__"],
+    default_visibility = ["//visibility:public"],
 )
 
 SKYFRAME_OBJECT_SRCS = [

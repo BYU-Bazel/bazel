@@ -4,7 +4,7 @@ load("@rules_java//java:defs.bzl", "java_library")
 #   Testing tools for the devtools-common options parser.
 package(
     default_testonly = 1,
-    default_visibility = ["//src:__subpackages__"],
+    default_visibility = ["//visibility:public"],
 )
 
 licenses(["notice"])  # Apache 2.0
@@ -15,7 +15,7 @@ filegroup(
     srcs = glob(
         ["**"],
     ),
-    visibility = ["//src/main/java/com/google/devtools/common/options:__pkg__"],
+    visibility = ["//visibility:public"],
 )
 
 java_library(

@@ -1,14 +1,14 @@
 load("@rules_java//java:defs.bzl", "java_library", "java_plugin")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
 
-package(default_visibility = ["//src:__subpackages__"])
+package(default_visibility = ["//visibility:public"])
 
 filegroup(
     name = "srcs",
     srcs = glob(
         ["**"],
     ),
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 # @AutoCodec annotation and plugin. Used by clients. Use

@@ -5,7 +5,7 @@ licenses(["notice"])
 filegroup(
     name = "srcs",
     srcs = glob(["**"]),
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 # A processor for Starlark annotations.
@@ -13,7 +13,7 @@ java_plugin(
     name = "processor",
     srcs = ["StarlarkMethodProcessor.java"],
     processor_class = "net.starlark.java.annot.processor.StarlarkMethodProcessor",
-    visibility = ["//src/main/java/net/starlark/java:starlark"],
+    visibility = ["//visibility:public"],
     deps = [
         "//src/main/java/net/starlark/java/annot:annot_sans_processor",
         "//third_party:error_prone_annotations",

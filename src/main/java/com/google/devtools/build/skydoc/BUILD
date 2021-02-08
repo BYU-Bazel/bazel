@@ -9,7 +9,7 @@
 load("@rules_java//java:defs.bzl", "java_binary", "java_library")
 
 package(
-    default_visibility = ["//src:__subpackages__"],
+    default_visibility = ["//visibility:public"],
 )
 
 licenses(["notice"])
@@ -45,7 +45,7 @@ java_binary(
 java_library(
     name = "skydoc_lib",
     srcs = glob(["*.java"]),
-    visibility = ["//src/test:__subpackages__"],
+    visibility = ["//visibility:public"],
     deps = [
         "//src/main/java/com/google/devtools/build/lib/cmdline",
         "//src/main/java/com/google/devtools/build/lib/collect/nestedset",

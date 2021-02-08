@@ -3,7 +3,7 @@ load("@rules_java//java:defs.bzl", "java_library")
 filegroup(
     name = "srcs",
     srcs = glob(["**"]),
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 # Annotations to make Java classes and methods accessible from Starlark.
@@ -11,7 +11,7 @@ filegroup(
 java_library(
     name = "annot",
     exported_plugins = ["//src/main/java/net/starlark/java/annot/processor"],
-    visibility = ["//src/main/java/net/starlark/java:clients"],
+    visibility = ["//visibility:public"],
     exports = [":annot_sans_processor"],
 )
 
@@ -19,6 +19,6 @@ java_library(
 java_library(
     name = "annot_sans_processor",
     srcs = glob(["*.java"]),
-    visibility = ["//src/main/java/net/starlark/java/annot/processor:__pkg__"],
+    visibility = ["//visibility:public"],
     deps = ["//third_party:jsr305"],
 )

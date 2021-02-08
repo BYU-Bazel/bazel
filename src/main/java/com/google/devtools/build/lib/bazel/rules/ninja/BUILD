@@ -1,5 +1,5 @@
 package(
-    default_visibility = ["//src:__subpackages__"],
+    default_visibility = ["//visibility:public"],
 )
 
 filegroup(
@@ -11,5 +11,5 @@ filegroup(
         "//src/main/java/com/google/devtools/build/lib/bazel/rules/ninja/parser:srcs",
         "//src/main/java/com/google/devtools/build/lib/bazel/rules/ninja/pipeline:srcs",
     ],
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )

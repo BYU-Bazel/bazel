@@ -1,7 +1,7 @@
 load("@rules_java//java:defs.bzl", "java_library")
 
 package(
-    default_visibility = ["//src:__subpackages__"],
+    default_visibility = ["//visibility:public"],
 )
 
 filegroup(
@@ -14,7 +14,7 @@ filegroup(
         "//src/main/java/com/google/devtools/build/lib/bazel/repository:srcs",
         "//src/main/java/com/google/devtools/build/lib/bazel/rules:srcs",
     ],
-    visibility = ["//src:__subpackages__"],
+    visibility = ["//visibility:public"],
 )
 
 java_library(
