@@ -2,12 +2,29 @@
 
 This is a package uses sheer willpower to mold the Bazel source code to suit our needs.
 
+## How to use
+
+Modify the `make_everything_public.sh` script and the `BUILD` file to export all the packages you need. The run the following:
+
+```
+./scripts/make_everything_public.sh
+./scripts/build_me_a_bazel_jar.sh
+```
+
+If you want to make sure you got a package in the jar, you can do:
+
+```
+list_classes_in_bazel_jar.sh | grep package_name_youre_looking_for
+```
+
 ## Sync this repo with the remote
 
 ```
 git fetch upstream
 git merge upstream/master
 ```
+
+---
 
 ## Random notes
 
